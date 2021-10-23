@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baoleme.dao.MerchantDao">
+    <resultMap id="merchantMap" type="com.baoleme.pojo.Merchant">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="site" column="site"/>
+    </resultMap>
+
+    <select id="getById" parameterType="long" resultMap="merchantMap">
+    	SELECT * FROM merchant WHERE id =#{id}
+    </select>
+
+
+</mapper>
