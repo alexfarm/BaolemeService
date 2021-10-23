@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baoleme.dao.TagDao">
+    <select id="getById" parameterType="long" resultType="Tag">
+    	SELECT * FROM tag WHERE id =#{id}
+    </select>
+
+    <select id="getAll" parameterType="long" resultType="Tag">
+        SELECT * FROM tag
+    </select>
+</mapper>

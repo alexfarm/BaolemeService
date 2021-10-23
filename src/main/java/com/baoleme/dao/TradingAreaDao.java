@@ -1,6 +1,6 @@
 package com.baoleme.dao;
 
-import com.baoleme.pojo.Merchant;
+import com.baoleme.pojo.TradingArea;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -8,10 +8,8 @@ import java.util.List;
 
 @Repository
 @Mapper
-public interface MerchantDao {
+public interface TradingAreaDao {
+    TradingArea getById(Long id);
 
-    Merchant getById(Long id);
-
-    List<Merchant> getAll();
-
+    List<TradingArea> getAll();
 }
