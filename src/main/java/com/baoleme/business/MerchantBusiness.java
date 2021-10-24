@@ -57,11 +57,14 @@ public class MerchantBusiness {
             List<MerchantTag> merchantTags = merchantTagListMap.get(merchant.getId());
 
             List<Tag> tags = new ArrayList<>();
-            for (MerchantTag merchantTag: merchantTags) {
-                Tag tag = tagMap.get(merchantTag.getTagId());
-                tag.setWeight(merchantTag.getWeight());
-                tags.add(tag);
+            if (merchantTags != null) {
+                for (MerchantTag merchantTag: merchantTags) {
+                    Tag tag = tagMap.get(merchantTag.getTagId());
+                    tag.setWeight(merchantTag.getWeight());
+                    tags.add(tag);
+                }
             }
+
             merchant.setTags(tags);
         }
 

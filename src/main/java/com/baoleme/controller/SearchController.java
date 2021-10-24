@@ -6,10 +6,7 @@ import com.baoleme.pojo.Merchant;
 import com.baoleme.pojo.UserTrace;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class SearchController {
     private UserTraceDao userTraceDao;
 
     @RequestMapping(value = "/search.json", method = RequestMethod.GET)
-    public List<Merchant> search(String content, @RequestHeader("X-USER-FLAG") String userFlag) {
+    public List<Merchant> search(@RequestParam("content") String content, @RequestHeader(value="X-USER-FLAG",defaultValue = "") String userFlag) {
 
         if (!StringUtils.isEmpty(userFlag)) {
             userTraceDao.deleteByUserId(userFlag);
