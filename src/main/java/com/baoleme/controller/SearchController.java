@@ -4,6 +4,7 @@ import com.baoleme.business.SearchBusiness;
 import com.baoleme.dao.UserTraceDao;
 import com.baoleme.pojo.Merchant;
 import com.baoleme.pojo.UserTrace;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,10 @@ public class SearchController {
     @RequestMapping(value = "/search.json", method = RequestMethod.GET)
     public List<Merchant> search(String content, @RequestHeader("X-USER-FLAG") String userFlag) {
 
-        userTraceDao.add(new UserTrace(userFlag, "OPERATION", content));
+        if (!StringUtils.isEmpty(userFlag)) {
+            userTraceDao.add(new UserTrace(userFlag, "OPERATION", content));
+        }
+
         return searchBusiness.search(content);
     }
 }
