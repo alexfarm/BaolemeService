@@ -15,8 +15,8 @@ public class SearchController {
     @Autowired
     private SearchBusiness searchBusiness;
 
-    @RequestMapping(value="/search.json",method = RequestMethod.GET)
-    public List<Merchant> search(String content){
-        return  searchBusiness.search(content);
+    @RequestMapping(value = "/search.json", method = RequestMethod.GET)
+    public List<Merchant> search(String content) {
+        return searchBusiness.search(content);
     }
 }
