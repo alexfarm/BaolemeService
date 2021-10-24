@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface CategoryGraphRepository extends Neo4jRepository<CategoryGraph,Long> {
 
-    @Query("MATCH (n:CategoryGraph)--(merchant:MerchantGraph) where n.name contains {0}" +
+    @Query("MATCH (n)--(merchant:MerchantGraph) where n.name contains {0}" +
             " return merchant")
     List<MerchantGraph> getMerchantsByCategory(@Param("category")String category);
 }
