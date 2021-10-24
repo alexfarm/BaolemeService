@@ -3,11 +3,11 @@
 <mapper namespace="com.baoleme.dao.UserTraceDao">
 
     <select id="getByUserId" parameterType="long" resultType="UserTrace">
-        SELECT * FROM userTrace where userId =#{userId}
+        SELECT * FROM `user-trace` where userId =#{userId}
     </select>
 
     <insert id="add" parameterType="UserTrace">
-        insert into userTrace (userId, operation, 'value')  values (#{userId}, #{operation}, #{value})
+        insert into `user-trace` (userId, operation, value)  values (#{userId}, #{operation}, #{value})
     </insert>
 
 </mapper>
