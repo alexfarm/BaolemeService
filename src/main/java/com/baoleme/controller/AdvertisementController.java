@@ -1,11 +1,8 @@
 package com.baoleme.controller;
 
 import com.baoleme.business.AdvertisementBusiness;
-import com.baoleme.business.MerchantBusiness;
 import com.baoleme.pojo.Advertisement;
-import com.baoleme.pojo.Merchant;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

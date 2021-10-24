@@ -3,12 +3,11 @@ package com.baoleme.business;
 import com.baoleme.dao.MerchantDao;
 import com.baoleme.pojo.Merchant;
 import com.baoleme.pojo.MerchantGraph;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SearchBusiness {
@@ -21,13 +20,9 @@ public class SearchBusiness {
 
     public List<Merchant> search(String content) {
         List<MerchantGraph> merchantGraphs = categoryBusiness.getMerchantByCategory(content);
+        List<Long> merchantIds = merchantGraphs.stream().map(MerchantGraph::getId).collect(Collectors.toList());
 
-        List<Merchant> merchants = new ArrayList<>();
-        for (MerchantGraph graph : merchantGraphs) {
-            Merchant merchant = new Merchant();
-            BeanUtils.copyProperties(graph, merchant);
-            merchants.add(merchant);
-        }
+        List<Merchant> merchants = merchantDao.getAllByIds(merchantIds);
 
         return merchants;
     }
