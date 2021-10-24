@@ -29,7 +29,7 @@ public class SearchBusiness {
             String merchantName = content;
             merchants = merchantDao.getAllByName(merchantName);
         } else {
-            List<Long> merchantIds = merchantGraphs.stream().map(MerchantGraph::getId).collect(Collectors.toList());
+            List<Long> merchantIds = merchantGraphs.stream().map(MerchantGraph::getMysqlId).collect(Collectors.toList());
             merchants = merchantDao.getAllByIds(merchantIds);
         }
 
