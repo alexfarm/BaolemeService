@@ -3,6 +3,8 @@ package com.baoleme.pojo;
 public class CategoryGraph {
     private long id;
 
+    private long mysqlId;
+
     private String name;
 
     private String type;
@@ -29,5 +31,13 @@ public class CategoryGraph {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public long getMysqlId() {
+        return mysqlId;
+    }
+
+    public void setMysqlId(long mysqlId) {
+        this.mysqlId = mysqlId;
     }
 }

@@ -7,6 +7,8 @@ public class MerchantGraph {
 
     private Long id;
 
+    private long mysqlId;
+
     private String name;
 
     private String site;
@@ -33,5 +35,13 @@ public class MerchantGraph {
 
     public void setSite(String site) {
         this.site = site;
+    }
+
+    public long getMysqlId() {
+        return mysqlId;
+    }
+
+    public void setMysqlId(long mysqlId) {
+        this.mysqlId = mysqlId;
     }
 }
