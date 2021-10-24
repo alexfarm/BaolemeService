@@ -20,12 +20,12 @@ public class MerchantController {
     @Autowired
     private MerchantBusiness merchantBusiness;
 
-    @RequestMapping(value = {"{id}"},method = {RequestMethod.GET})
+    @RequestMapping(value = {"{id}.json"},method = {RequestMethod.GET})
     public Merchant getById(@PathVariable("id") String id) {
         return merchantBusiness.findById(Long.valueOf(id));
     }
 
-    @RequestMapping(value="/all",method = RequestMethod.GET)
+    @RequestMapping(value="/all.json",method = RequestMethod.GET)
     public List<Merchant> getAll(){
         return  merchantBusiness.findAll();
     }

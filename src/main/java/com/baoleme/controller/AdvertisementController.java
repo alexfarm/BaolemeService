@@ -19,7 +19,7 @@ public class AdvertisementController {
     @Autowired
     private AdvertisementBusiness advertisementBusiness;
 
-    @RequestMapping(value="/all",method = RequestMethod.GET)
+    @RequestMapping(value="/all.json",method = RequestMethod.GET)
     public List<Advertisement> all(){
         return advertisementBusiness.findAll();
     }

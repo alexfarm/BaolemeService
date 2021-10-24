@@ -21,13 +21,13 @@ public class HelloController {
     @Autowired
     private MerchantService merchantService;
 
-    @RequestMapping(value="/findMerchant",method = RequestMethod.GET)
+    @RequestMapping(value="/findMerchant.json",method = RequestMethod.GET)
     public Merchant Hello(Long id){
         Merchant merchant = merchantBusiness.findMerchantById(id);
         return merchant;
     }
 
-    @RequestMapping(value="/graph/findMerchant",method = RequestMethod.GET)
+    @RequestMapping(value="/graph/findMerchant.json",method = RequestMethod.GET)
     public MerchantGraph Hellov2(Long id){
         MerchantGraph merchant = merchantService.getMerchant(id);
         return merchant;
