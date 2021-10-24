@@ -3,10 +3,7 @@ package com.baoleme.controller;
 import com.baoleme.business.MerchantBusiness;
 import com.baoleme.pojo.Merchant;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,8 +17,8 @@ public class MerchantController {
     @Autowired
     private MerchantBusiness merchantBusiness;
 
-    @RequestMapping(value = "/{id}.json",method = {RequestMethod.GET})
-    public Merchant getById(@PathVariable("id") String id) {
+    @RequestMapping(value = "/detail.json",method = {RequestMethod.GET})
+    public Merchant getById(@RequestParam("id") String id) {
         return merchantBusiness.findById(Long.valueOf(id));
     }
 
