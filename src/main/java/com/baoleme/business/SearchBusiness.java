@@ -44,7 +44,7 @@ public class SearchBusiness {
             }
 
             return merchants;
-        }catch (Exception e) {
+        } catch (Exception e) {
             return new ArrayList<>();
         }
 
