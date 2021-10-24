@@ -5,7 +5,7 @@ import com.baoleme.pojo.MerchantGraph;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class MerchantService {
@@ -14,7 +14,7 @@ public class MerchantService {
     MerchantGraphRepository merchantGraphRepository;
 
     public MerchantGraph getMerchant(Long id){
-        Optional<MerchantGraph> merchants = merchantGraphRepository.findById(id);
-        return merchants.get();
+        List<MerchantGraph> merchants = (List)merchantGraphRepository.findAll();
+        return merchants.get(0);
     }
 }
