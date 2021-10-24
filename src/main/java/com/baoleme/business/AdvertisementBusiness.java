@@ -1,15 +1,11 @@
 package com.baoleme.business;
 
-import com.baoleme.dao.*;
-import com.baoleme.pojo.*;
+import com.baoleme.dao.AdvertisementDao;
+import com.baoleme.pojo.Advertisement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 public class AdvertisementBusiness {

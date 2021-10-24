@@ -8,4 +8,12 @@
     <select id="getAll" parameterType="long" resultType="Merchant">
         SELECT * FROM merchant
     </select>
+
+    <select id="getAllByIds" parameterType="java.util.List" resultType="Merchant">
+        SELECT * FROM merchant
+        where id in
+        <foreach collection="list" item="merchantId" open="(" close=")" separator=",">
+            #{merchantId}
+        </foreach>
+    </select>
 </mapper>
