@@ -16,4 +16,8 @@
             #{merchantId}
         </foreach>
     </select>
+
+    <select id="getAllByName" parameterType="string" resultType="Merchant">
+    	SELECT * FROM merchant WHERE name like CONCAT('%',#{name,jdbcType=VARCHAR},'%')
+    </select>
 </mapper>

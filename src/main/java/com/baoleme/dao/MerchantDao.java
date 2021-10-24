@@ -16,4 +16,6 @@ public interface MerchantDao {
 
     List<Merchant> getAllByIds(List<Long> ids);
 
+    List<Merchant> getAllByName(String merchantName);
+
 }
