@@ -13,4 +13,6 @@ public interface UserTraceDao {
     Integer add(UserTrace userTrace);
 
     UserTrace getByUserId(String userId);
+
+    Integer deleteByUserId(String userId);
 }

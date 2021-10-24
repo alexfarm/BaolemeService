@@ -26,6 +26,7 @@ public class SearchController {
     public List<Merchant> search(String content, @RequestHeader("X-USER-FLAG") String userFlag) {
 
         if (!StringUtils.isEmpty(userFlag)) {
+            userTraceDao.deleteByUserId(userFlag);
             userTraceDao.add(new UserTrace(userFlag, "OPERATION", content));
         }
 
