@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.baoleme.dao.UserTraceDao">
 
-    <select id="getByUserId" parameterType="long" resultType="UserTrace">
+    <select id="getByUserId" parameterType="string" resultType="UserTrace">
         SELECT * FROM `user-trace` where userId =#{userId}
     </select>
 
