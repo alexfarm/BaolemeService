@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.baoleme.dao.CategoryDao">
     <select id="getById" parameterType="long" resultType="Category">
-    	SELECT category.*, type.name as type FROM category LEFT JOIN type
-        on category.typeId = type.id
-        WHERE id =#{id}
+    	SELECT category.*, t.name as type FROM category LEFT JOIN `type` t
+        on category.typeId = t.id
+        WHERE category.id = #{id}
     </select>
 
     <select id="getAll" parameterType="long" resultType="Category">
-        SELECT category.*, type.name as type FROM category LEFT JOIN type
-        on category.typeId = type.id
+        SELECT category.*, t.name as type FROM category LEFT JOIN `type` t
+        on category.typeId = t.id
     </select>
 </mapper>

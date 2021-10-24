@@ -53,7 +53,7 @@ public class MerchantBusiness {
 
         for (Merchant merchant: merchantList) {
             merchant.setTradingArea(tradingAreaMap.get(merchant.getTradingAreaId()));
-            merchant.setCategory(categrayMap.get(merchant.getCateGrayId()));
+            merchant.setCategory(categrayMap.get(merchant.getCategoryId()));
             List<MerchantTag> merchantTags = merchantTagListMap.get(merchant.getId());
 
             List<Tag> tags = new ArrayList<>();
@@ -73,7 +73,7 @@ public class MerchantBusiness {
 
     public Merchant findById(Long id) {
         Merchant merchant = merchantDao.getById(id);
-        merchant.setCategory(categoryDao.getById(merchant.getCateGrayId()));
+        merchant.setCategory(categoryDao.getById(merchant.getCategoryId()));
         merchant.setTradingArea(tradingAreaDao.getById(merchant.getTradingAreaId()));
 
         List<Tag> tagList = tagDao.getAll();

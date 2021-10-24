@@ -17,7 +17,7 @@ public class Merchant {
 
     private long tradingAreaId;
 
-    private long cateGrayId;
+    private long categoryId;
 
     private TradingArea tradingArea;
 
@@ -81,12 +81,12 @@ public class Merchant {
         this.tradingAreaId = tradingAreaId;
     }
 
-    public long getCateGrayId() {
-        return cateGrayId;
+    public long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCateGrayId(long cateGrayId) {
-        this.cateGrayId = cateGrayId;
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public TradingArea getTradingArea() {
