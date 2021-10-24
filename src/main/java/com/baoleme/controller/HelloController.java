@@ -28,8 +28,8 @@ public class HelloController {
     }
 
     @RequestMapping(value="/graph/findMerchant.json",method = RequestMethod.GET)
-    public MerchantGraph Hellov2(Long id){
-        MerchantGraph merchant = merchantService.getMerchant(id);
+    public MerchantGraph Hellov2(String name){
+        MerchantGraph merchant = merchantService.getMerchant(name);
         return merchant;
     }
 }
