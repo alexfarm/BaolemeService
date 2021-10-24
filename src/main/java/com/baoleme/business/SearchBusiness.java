@@ -30,17 +30,16 @@ public class SearchBusiness {
 
     public List<Merchant> search(String content) {
         try {
-            //首先去图数据库检索类别
-            List<MerchantGraph> merchantGraphs = categoryBusiness.getMerchantByCategory(content);
+            List<Merchant> merchants = getMerchant(content);
 
-            List<Merchant> merchants;
-            //如果没有类别，则从mysql中检索特定的商品
-            if(CollectionUtils.isEmpty(merchantGraphs)){
-                String merchantName = content;
-                merchants = merchantDao.getAllByName(merchantName);
-            } else {
-                List<Long> merchantIds = merchantGraphs.stream().map(MerchantGraph::getMysqlId).collect(Collectors.toList());
-                merchants = merchantDao.getAllByIds(merchantIds);
+            // 如果还是没有，分词后检索
+            if(CollectionUtils.isEmpty(merchants)) {
+                List<String> words = getWord(content);
+                for (String word: words) {
+                    if (CollectionUtils.isEmpty(merchants)) {
+                        merchants = getMerchant(word);
+                    }
+                }
             }
 
             return merchants;
@@ -48,6 +47,22 @@ public class SearchBusiness {
             return new ArrayList<>();
         }
 
+    }
+
+    private List<Merchant> getMerchant(String content) {
+        //首先去图数据库检索类别
+        List<MerchantGraph> merchantGraphs = categoryBusiness.getMerchantByCategory(content);
+
+        List<Merchant> merchants;
+        //如果没有类别，则从mysql中检索特定的商品
+        if(CollectionUtils.isEmpty(merchantGraphs)){
+            String merchantName = content;
+            merchants = merchantDao.getAllByName(merchantName);
+        } else {
+            List<Long> merchantIds = merchantGraphs.stream().map(MerchantGraph::getMysqlId).collect(Collectors.toList());
+            merchants = merchantDao.getAllByIds(merchantIds);
+        }
+        return merchants;
     }
 
     private List<String> getWord(String content) throws Exception {
