@@ -11,7 +11,7 @@
     </delete>
 
     <insert id="add" parameterType="UserTrace">
-        insert into user-trace (userId, operation, value)  values (#{userId}, #{operation}, #{value})
+        insert into `user-trace` (userId, operation, value)  values (#{userId}, #{operation}, #{value})
     </insert>
 
 </mapper>
